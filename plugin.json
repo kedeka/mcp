@@ -1,0 +1,43 @@
+{
+    "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+    "name": "kedeka",
+    "version": "1.0.0",
+    "description": "Cek invoice, piutang, dan laporan keuangan Kedeka, lalu buat draf invoice atau penawaran, tugas, dan catatan waktu kerja langsung dari percakapan.",
+    "author": {
+        "name": "Kedeka",
+        "email": "developer@kedeka.com",
+        "url": "https://kedeka.com"
+    },
+    "homepage": "https://kedeka.com",
+    "repository": "https://github.com/kedeka/mcp",
+    "license": "MIT",
+    "keywords": [
+        "invoice",
+        "piutang",
+        "akuntansi",
+        "indonesia",
+        "freelancer",
+        "agensi"
+    ],
+    "extensions": {
+        "com.openai": {
+            "interface": {
+                "displayName": "Kedeka",
+                "shortDescription": "Kelola bisnis Kedeka dari chat",
+                "longDescription": "Kelola administrasi bisnis Anda langsung dari percakapan. Tanyakan invoice yang belum dibayar, cek piutang dan laporan keuangan, cari data klien dan proyek, atau minta dibuatkan draf invoice dan penawaran. Owner atau admin menentukan apa saja yang boleh dilakukan aplikasi AI di Pengaturan → Integrasi AI.",
+                "developerName": "Kedeka",
+                "category": "Business & Operations",
+                "websiteURL": "https://kedeka.com",
+                "privacyPolicyURL": "https://kedeka.com/privacy-policy",
+                "termsOfServiceURL": "https://kedeka.com/terms-of-service",
+                "defaultPrompt": [
+                    "Invoice mana saja yang belum dibayar dan sudah lewat jatuh tempo?",
+                    "Buatkan draf invoice untuk PT Kopi Senja: desain logo 1 paket, Rp5.000.000.",
+                    "Berapa omzet, PPN, dan laba saya bulan ini?"
+                ],
+                "logo": "./assets/kedeka-icon.png",
+                "composerIcon": "./assets/kedeka-icon.png"
+            }
+        }
+    }
+}

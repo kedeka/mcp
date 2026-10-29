@@ -1,0 +1,23 @@
+{
+    "name": "kedeka",
+    "displayName": "Kedeka",
+    "version": "1.0.0",
+    "description": "Cek invoice, piutang, dan laporan keuangan Kedeka, lalu buat draf invoice atau penawaran, tugas, dan catatan waktu kerja langsung dari percakapan.",
+    "author": {
+        "name": "Kedeka",
+        "email": "developer@kedeka.com",
+        "url": "https://kedeka.com"
+    },
+    "homepage": "https://kedeka.com",
+    "privacyPolicyUrl": "https://kedeka.com/privacy-policy",
+    "license": "MIT",
+    "keywords": [
+        "invoice",
+        "piutang",
+        "akuntansi",
+        "indonesia",
+        "freelancer",
+        "agensi"
+    ],
+    "repository": "https://github.com/kedeka/mcp"
+}

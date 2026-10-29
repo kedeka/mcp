@@ -1,0 +1,16 @@
+{
+    "name": "kedeka",
+    "description": "Plugin resmi Kedeka untuk aplikasi AI.",
+    "owner": {
+        "name": "Kedeka",
+        "email": "developer@kedeka.com",
+        "url": "https://kedeka.com"
+    },
+    "plugins": [
+        {
+            "name": "kedeka",
+            "source": "./",
+            "description": "Cek invoice, piutang, dan laporan keuangan Kedeka, lalu buat draf invoice atau penawaran, tugas, dan catatan waktu kerja langsung dari percakapan."
+        }
+    ]
+}
