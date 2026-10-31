@@ -1,8 +1,8 @@
 {
     "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
     "name": "kedeka",
-    "version": "1.0.0",
-    "description": "Cek invoice, piutang, dan laporan keuangan Kedeka, lalu buat draf invoice atau penawaran, tugas, dan catatan waktu kerja langsung dari percakapan.",
+    "version": "1.2.0",
+    "description": "Hubungkan aplikasi AI dengan workspace Kedeka untuk mengurus invoice, penawaran, klien, proyek, dan laporan keuangan.",
     "author": {
         "name": "Kedeka",
         "email": "developer@kedeka.com",
@@ -24,16 +24,16 @@
             "interface": {
                 "displayName": "Kedeka",
                 "shortDescription": "Kelola bisnis Kedeka dari chat",
-                "longDescription": "Kelola administrasi bisnis Anda langsung dari percakapan. Tanyakan invoice yang belum dibayar, cek piutang dan laporan keuangan, cari data klien dan proyek, atau minta dibuatkan draf invoice dan penawaran. Owner atau admin menentukan apa saja yang boleh dilakukan aplikasi AI di Pengaturan → Integrasi AI.",
+                "longDescription": "Urus administrasi bisnis langsung dari percakapan. Tanyakan siapa yang belum membayar, lihat kondisi keuangan bulan ini, atau minta aplikasi AI menyiapkan draf invoice untuk klien Anda.\n\nYang bisa dilakukan:\n• Melihat invoice, penawaran, kuitansi, proposal, dan pembayaran\n• Memantau piutang, omzet, pengeluaran, dan laba per periode\n• Mencari dan mengelola klien, produk, proyek, dan tugas\n• Mencatat waktu kerja, pengeluaran, dan pembayaran yang masuk\n• Menyiapkan draf invoice dan penawaran, termasuk dari penawaran yang sudah disetujui\n• Mengirim dokumen ke email klien setelah Anda memeriksanya di Kedeka\n\nTetap di bawah kendali Anda:\n• aplikasi AI hanya mengakses workspace yang Anda hubungkan.\n• Owner atau admin mengatur apa saja yang boleh dilakukan aplikasi AI di Pengaturan → Integrasi AI.\n• Setiap perubahan data dikonfirmasi ke Anda dulu, dan dokumen baru disimpan sebagai draf.\n• Data sensitif seperti NPWP dan nomor rekening diisi di halaman aman Kedeka, bukan di chat.",
                 "developerName": "Kedeka",
                 "category": "Business & Operations",
                 "websiteURL": "https://kedeka.com",
                 "privacyPolicyURL": "https://kedeka.com/privacy-policy",
                 "termsOfServiceURL": "https://kedeka.com/terms-of-service",
                 "defaultPrompt": [
+                    "Berikan insight bisnis saya: apa yang berjalan baik dan apa yang perlu saya perhatikan?",
                     "Invoice mana saja yang belum dibayar dan sudah lewat jatuh tempo?",
-                    "Buatkan draf invoice untuk PT Kopi Senja: desain logo 1 paket, Rp5.000.000.",
-                    "Berapa omzet, PPN, dan laba saya bulan ini?"
+                    "Buatkan draf invoice untuk PT Kopi Senja: desain logo 1 paket, Rp5.000.000."
                 ],
                 "logo": "./assets/kedeka-icon.png",
                 "composerIcon": "./assets/kedeka-icon.png"

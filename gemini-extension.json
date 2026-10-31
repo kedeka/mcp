@@ -1,7 +1,7 @@
 {
     "name": "kedeka",
-    "version": "1.0.0",
-    "description": "Cek invoice, piutang, dan laporan keuangan Kedeka, lalu buat draf invoice atau penawaran, tugas, dan catatan waktu kerja langsung dari percakapan.",
+    "version": "1.2.0",
+    "description": "Hubungkan aplikasi AI dengan workspace Kedeka untuk mengurus invoice, penawaran, klien, proyek, dan laporan keuangan.",
     "mcpServers": {
         "kedeka": {
             "httpUrl": "https://kedeka.com/mcp/kedeka"
