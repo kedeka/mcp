@@ -11,16 +11,16 @@ Explicit user instructions take priority over this skill. Reply in the user's la
 
 ## Steps
 
-1. **Read receivables.** Call `get_receivables`.
-   - For one client, find the client with `search_clients` first and pass `customer_id`.
-   - For "overdue" or "telat", pass `overdue_only: true`.
-   - The tool is for workspace owners and admins. If it is refused, say so plainly.
+1. **Read receivables.** Call `get_report` with `report: receivables`.
+   - For one client, find the client with `search_records` (`entity: client`) first and pass `params: {"customer_id": "<id>"}`.
+   - For "overdue" or "telat", pass `params: {"overdue_only": true}`.
+   - The report is for workspace owners and admins. If it is refused, say so plainly.
 2. **Summarize.** Show:
    - Total outstanding and the totals per age bucket (not yet due, 0–30, 31–60, 61–90, over 90 days).
-   - A short table of the oldest unpaid invoices: number, client, due date, days overdue, balance.
+   - A short table of the oldest unpaid invoices: number, client, due date, days overdue, balance. Keep the invoice number and client name as plain text; put any link in its own column.
    Use the currency returned by the tool, formatted for the user's locale.
 3. **Prioritize.** Suggest an order to follow up: longest overdue first, then the largest balances. Keep it to the top five unless the user asks for more.
-4. **Draft reminders (on request).** For each invoice the user picks, call `get_document` if you need its details, then write a short reminder:
+4. **Draft reminders (on request).** For each invoice the user picks, call `get_record` (`entity: document`, `id`, `options: {"document_type": "invoice"}`) if you need its details, then write a short reminder:
    - Polite and specific: invoice number, amount due, original due date.
    - Firmer tone only for invoices more than 30 days overdue, and never threatening.
    - Use the client's name from the data. Do not add bank details, penalties, or deadlines that are not in the data.

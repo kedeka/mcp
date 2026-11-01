@@ -6,13 +6,17 @@ Repo ini berisi plugin, bukan source code server. Server MCP Kedeka berjalan di 
 
 ## Isi plugin
 
-- **Connector Kedeka** di `https://kedeka.com/mcp/kedeka`, dengan 38 tool untuk membaca dan mengelola data workspace.
+- **Connector Kedeka** di `https://kedeka.com/mcp/kedeka`, dengan 12 tool berdasarkan jenis operasi untuk membaca dan mengelola data workspace.
 - **Skill** yang mengajari aplikasi AI alur kerja Kedeka. Instruksinya berbahasa Inggris, dan aplikasi AI membalas dalam bahasa pengguna:
   - `get-started`: perkenalan setelah dipasang, workspace yang terhubung, dan izin yang aktif.
   - `financial-summary`: omzet, pengeluaran, laba, pajak, perbandingan periode, dan insight bisnis.
   - `collect-receivables`: invoice belum lunas, prioritas penagihan, dan draf pesan pengingat.
   - `draft-invoice`: draf invoice atau penawaran, termasuk dari penawaran yang disetujui.
   - `record-payment`: mencatat pembayaran yang sudah masuk, termasuk dari bukti transfer.
+  - `project-briefs`: untuk coding agent, membaca brief proyek dari Kedeka berdasarkan git remote repo, lalu memperbarui status paket kerja. Repo tidak perlu menyimpan dokumen brief.
+  - `write-brief`: menyimpan hasil diskusi, kebutuhan, dan keputusan menjadi brief proyek.
+  - `track-work`: mencatat sesi pekerjaan agen pada tugas yang dipilih, terpisah dari waktu manual.
+  - `manage-records`: mencari dan mengelola klien, proyek, tugas, waktu, dan data lainnya.
 
 ## Pemasangan
 

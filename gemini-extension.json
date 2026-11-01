@@ -1,7 +1,7 @@
 {
     "name": "kedeka",
-    "version": "1.2.0",
-    "description": "Hubungkan aplikasi AI dengan workspace Kedeka untuk mengurus invoice, penawaran, klien, proyek, dan laporan keuangan.",
+    "version": "2.0.0",
+    "description": "Hubungkan aplikasi AI dengan Kedeka untuk mengelola bisnis, brief proyek, dan waktu kerja agen.",
     "mcpServers": {
         "kedeka": {
             "httpUrl": "https://kedeka.com/mcp/kedeka"

@@ -9,7 +9,7 @@ Explicit user instructions take priority over this skill. Reply in the user's la
 
 ## Choose the period
 
-Map the request to the `period` argument of `get_financial_report`:
+Map the request to `params.period` of `get_report` with `report: financial`:
 
 | User says | period |
 |---|---|
@@ -28,7 +28,7 @@ If the period is unclear, use `month` and say which period you used.
 
 ## Steps
 
-1. Call `get_financial_report` with the period. The tool is for workspace owners and admins; if it is refused, say so plainly.
+1. Call `get_report` with `report: financial` and `params: {"period": "<period>"}`. The report is for workspace owners and admins; if it is refused, say so plainly.
 2. For a comparison, call it a second time with the comparison period (for example `month` and `last_month`).
 3. Present the key figures first: revenue, expenses, profit, payments received, and outstanding balance. Add VAT (PPN), withheld income tax (PPh), and the estimated final income tax (PPh Final 0.5%) only when the user asks about tax or when they are non-zero.
 4. For a comparison, show both values and the change in amount and percent. Do not compute a percent change when the earlier value is zero.
@@ -38,8 +38,8 @@ If the period is unclear, use `month` and say which period you used.
 
 For open-ended requests such as "berikan insight bisnis saya" or "how is my business doing?", build a short visual briefing instead of a single number:
 
-1. Call `get_financial_report` with `12m` for the trend and with `month` for the current month.
-2. Call `get_receivables` for the outstanding balance and the oldest overdue invoices.
+1. Call `get_report` with `report: financial`, once with period `12m` for the trend and once with `month` for the current month.
+2. Call `get_report` with `report: receivables` for the outstanding balance and the oldest overdue invoices.
 3. Present, in this order:
    - **Headline:** one sentence on the overall picture, backed by a figure.
    - **Trend chart:** monthly revenue and profit over the last 12 months.
