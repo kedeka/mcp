@@ -28,6 +28,7 @@ The fields below cover common requests. Use the tool's input schema and any vali
 - IDs come only from results: records from `search_records`; expense category, tax rate, and member IDs from `get_report` with `report: workspace_reference`. Never invent an ID.
 - If a result has `selection.required=true`, show the candidates and ask the user which one they mean.
 - Show what will be saved and confirm before writing unless the user's current instruction already explicitly authorizes that change. Follow any confirmation presented by the host.
+- For a new brief drafted by the assistant, follow `write-brief`: show the draft and wait for the user's separate confirmation before saving.
 - Use a fresh `idempotency_key` for each new record (for example a UUID). Reuse it only when retrying the same request after an error.
 - In lists and tables, write record names as plain text. Put a link to Kedeka in its own column or after the list: some chat interfaces drop linked text inside tables.
 - Dates are `YYYY-MM-DD`. Amounts are plain numbers in the workspace currency (Rp150.000 → `150000`).
