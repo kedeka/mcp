@@ -1,7 +1,7 @@
 {
     "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
     "name": "kedeka",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "description": "Hubungkan aplikasi AI dengan Kedeka untuk mengelola bisnis, brief proyek, dan waktu kerja agen.",
     "author": {
         "name": "Kedeka",
@@ -24,7 +24,7 @@
             "interface": {
                 "displayName": "Kedeka",
                 "shortDescription": "Kelola bisnis Kedeka dari chat",
-                "longDescription": "Urus administrasi bisnis langsung dari percakapan. Tanyakan siapa yang belum membayar, lihat kondisi keuangan bulan ini, atau minta aplikasi AI menyiapkan draf invoice untuk klien Anda.\n\nYang bisa dilakukan:\n• Melihat invoice, penawaran, kuitansi, proposal, dan pembayaran\n• Memantau piutang, omzet, pengeluaran, dan laba per periode\n• Mencari dan mengelola klien, produk, proyek, dan tugas\n• Mencatat waktu kerja, pengeluaran, dan pembayaran yang masuk\n• Menyimpan dan menghubungkan brief proyek dari percakapan\n• Melacak waktu agen pada tugas yang dipilih\n• Menyiapkan draf invoice dan penawaran, termasuk dari penawaran yang sudah disetujui\n• Mengirim dokumen ke email klien setelah Anda memeriksanya di Kedeka\n\nTetap di bawah kendali Anda:\n• aplikasi AI hanya mengakses workspace yang Anda hubungkan.\n• Owner atau admin mengatur apa saja yang boleh dilakukan aplikasi AI di Pengaturan → Integrasi AI.\n• Setiap perubahan data dikonfirmasi ke Anda dulu, dan dokumen baru disimpan sebagai draf.\n• Data sensitif seperti NPWP dan nomor rekening diisi di halaman aman Kedeka, bukan di chat.",
+                "longDescription": "Urus administrasi bisnis langsung dari percakapan. Tanyakan siapa yang belum membayar, lihat kondisi keuangan bulan ini, atau minta aplikasi AI menyiapkan draf invoice untuk klien Anda.\n\nYang bisa dilakukan:\n• Melihat invoice, penawaran, kuitansi, proposal, dan pembayaran\n• Memantau piutang, omzet, pengeluaran, dan laba per periode\n• Mencari dan mengelola klien, produk, proyek, dan tugas\n• Mencatat waktu kerja, pengeluaran, dan pembayaran yang masuk\n• Menyimpan dan menghubungkan brief proyek dari percakapan\n• Melacak waktu agen pada tugas yang dipilih\n• Menyiapkan draf invoice dan penawaran, termasuk dari penawaran yang sudah disetujui\n• Mengirim dokumen ke email klien setelah Anda memeriksanya di Kedeka\n\nTetap di bawah kendali Anda:\n• aplikasi AI hanya mengakses workspace yang Anda hubungkan.\n• Owner atau admin mengatur apa saja yang boleh dilakukan aplikasi AI di Pengaturan → Integrasi AI.\n• Perubahan data mengikuti instruksi dan persetujuan Anda; tracking task dan pembaruan hasil brief tercakup dalam permintaan coding. Dokumen baru disimpan sebagai draf.\n• Data sensitif seperti NPWP dan nomor rekening diisi di halaman aman Kedeka, bukan di chat.",
                 "developerName": "Kedeka",
                 "category": "Business & Operations",
                 "websiteURL": "https://kedeka.com",
