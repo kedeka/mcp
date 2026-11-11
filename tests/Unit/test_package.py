@@ -10,7 +10,7 @@ class PackageTest(unittest.TestCase):
     def test_release_versions_match(self):
         versions = {json.loads((ROOT / name).read_text())["version"] for name in
                     ["plugin.json", ".claude-plugin/plugin.json", "gemini-extension.json"]}
-        self.assertEqual(versions, {"2.2.0"})
+        self.assertEqual(versions, {"2.2.1"})
 
     def test_package_ships_no_hooks_or_edit_guards(self):
         for path in ["hooks", ".agents/hooks", "integrations"]:
