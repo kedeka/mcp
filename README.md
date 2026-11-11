@@ -15,7 +15,7 @@ Repo ini berisi plugin, bukan source code server. Server MCP Kedeka berjalan di 
   - `record-payment`: mencatat pembayaran yang sudah masuk, termasuk dari bukti transfer.
   - `project-briefs`: untuk coding agent, membaca brief proyek dari Kedeka berdasarkan git remote repo, lalu memperbarui status paket kerja. Repo tidak perlu menyimpan dokumen brief.
   - `write-brief`: menyimpan hasil diskusi, kebutuhan, dan keputusan menjadi brief proyek.
-  - `track-work`: menyiapkan task dan brief untuk implementasi yang diminta, mencatat waktu serta hasil terverifikasi, terpisah dari waktu manual.
+  - `track-work`: mencari atau membuat task untuk pekerjaan coding dan mencatat waktunya, terpisah dari waktu manual. Tidak pernah menghalangi pekerjaan.
   - `manage-records`: mencari dan mengelola klien, proyek, tugas, waktu, dan data lainnya.
 
 ## Pemasangan
@@ -54,7 +54,7 @@ Data sensitif seperti NPWP, NITKU, dan nomor rekening tidak diisi di chat. Aplik
 
 ## Data
 
-Pemasangan plugin biasa memuat instruksi dan alamat connector. Adapter hook Python opsional di `.agents/hooks/` hanya berjalan setelah Anda memasangnya dan mempercayainya pada harness coding; pemasangan plugin tidak mengaktifkannya otomatis. Saat Anda bertanya, aplikasi AI memanggil server Kedeka di `kedeka.com` dengan izin yang Anda setujui. Data yang diminta, seperti dokumen, klien, proyek, dan laporan, dikirim dari Kedeka ke penyedia aplikasi AI tersebut untuk menjawab pertanyaan Anda. Nilai yang Anda isi di halaman aman Kedeka tidak dikirim ke aplikasi AI; aplikasi AI hanya diberi tahu bahwa aksinya sudah selesai. Kedeka hanya mengirim email ke klien setelah Anda menekan Kirim di halaman aman itu, atau email terima kasih otomatis saat pembayaran melunasi invoice bila diaktifkan di pengaturan Email.
+Pemasangan plugin biasa memuat instruksi dan alamat connector. Plugin tidak memasang hook dan tidak menjalankan kode di komputer Anda. Saat Anda bertanya, aplikasi AI memanggil server Kedeka di `kedeka.com` dengan izin yang Anda setujui. Data yang diminta, seperti dokumen, klien, proyek, dan laporan, dikirim dari Kedeka ke penyedia aplikasi AI tersebut untuk menjawab pertanyaan Anda. Nilai yang Anda isi di halaman aman Kedeka tidak dikirim ke aplikasi AI; aplikasi AI hanya diberi tahu bahwa aksinya sudah selesai. Kedeka hanya mengirim email ke klien setelah Anda menekan Kirim di halaman aman itu, atau email terima kasih otomatis saat pembayaran melunasi invoice bila diaktifkan di pengaturan Email.
 
 Koneksi yang tidak dipakai selama 30 hari berakhir otomatis. Koneksi juga bisa diputus kapan saja dari **Pengaturan → Integrasi AI** di Kedeka. Kebijakan privasi: https://kedeka.com/privacy-policy. Bantuan: https://kedeka.com/support.
 
@@ -67,23 +67,7 @@ Koneksi yang tidak dipakai selama 30 hari berakhir otomatis. Koneksi juga bisa d
 | `gemini-extension.json` | Gemini CLI |
 | `skills/` | Semua aplikasi di atas |
 
-## Hook lifecycle untuk coding agent
-
-Skill mengikuti protokol MCP yang sama pada semua host. Hook hanya membantu tracking: menyiapkan task/brief sebelum mutasi proyek, heartbeat, finish eksplisit, dan pause saat sesi berakhir. Hook tidak memilih workflow atau mengatur izin delegasi; tidak ada whitelist per skill. Investigasi baca saja dan diskusi tidak memerlukan prepared task. Klasifikasi perintah adalah bantuan tracking, bukan sandbox keamanan: perintah yang tidak dikenali mendapat pengingat tanpa penolakan.
-
-Adapter opt-in untuk **macOS/Linux dengan Python 3** disinkronkan dari source Kedeka `ec10454573e7bed492387d6be64851eced9d694f`:
-
-- `.agents/hooks/kedeka.py`: Codex, memakai klien OAuth native `codex app-server` tanpa membaca/menyalin token atau menjalankan model/worker AI.
-- `.agents/hooks/kedeka_claude.py`: Claude Code, memakai receipt respons MCP native server `kedeka` dan callback penutupan bertanda tangan. Identitas serta kredensial Claude terpisah dari Codex.
-- `integrations/codex/hooks.json` dan `integrations/claude/settings.json`: konfigurasi proyek, bukan hook plugin global yang otomatis aktif. Salin kedua script ke `.agents/hooks/` pada repo tujuan, lalu **gabungkan** konfigurasi harness ke `.codex/hooks.json` atau `.claude/settings.json` tanpa menimpa hook yang sudah ada. Command mengacu pada root repo tujuan, bukan direktori instalasi plugin.
-
-Sebelum mengaktifkan, tautkan repo tujuan melalui **Brief → Hubungkan agent**, sambungkan server MCP bernama `kedeka` ke workspace yang benar lewat OAuth native harness, lalu tinjau/percayai hook melalui `/hooks`. Claude memerlukan dukungan `mcp_tool` hooks; lihat [referensi resmi](https://code.claude.com/docs/en/hooks). Codex memerlukan `codex` di PATH dan dukungan lifecycle hook. Perubahan script memerlukan peninjauan trust ulang; paket ini tidak mengubah trust atau konfigurasi global Anda.
-
-Gunakan `session_key` persis dari konteks hook, exact `worktree`, serta `lifecycle_hooks: true` hanya saat hook aktif. Ikuti `get_help projects/tracking/prepare`; untuk Claude baca juga `projects/tracking/claude`. Guard Claude diperbarui melalui `get_report current_work` dan receipt berlaku 60 detik. Finish eksplisit menyimpan summary, verification, revision brief dan commit/PR: `done` setelah acceptance lulus, `review` bila masih menunggu pemeriksaan; pause untuk pekerjaan belum selesai.
-
-State lokal privat berada di `~/.local/state/kedeka/hooks` atau `claude-hooks`: identitas, metadata run dan antrean callback; bukan isi prompt atau token OAuth. Claude menyimpan kapabilitas penutupan terbatas milik run, yang hanya dapat menghentikan timer. Callback offline dicoba ulang dengan waktu kejadian asli. Proses yang mati tanpa event tetap bergantung pada idle lease server; jangan menganggap Stop berarti selesai.
-
-Gemini CLI dan host tanpa adapter memakai protokol MCP eksplisit serta idle lease; paket ini tidak mengklaim dukungan hook otomatis pada host tersebut. Jangan pasang kedua adapter untuk satu harness atau menggandakan hook proyek yang sudah aktif.
+## Pengujian paket
 
 Uji tanpa OAuth, model, atau jaringan:
 
