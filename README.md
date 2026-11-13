@@ -58,41 +58,8 @@ Pemasangan plugin biasa memuat instruksi dan alamat connector. Plugin tidak mema
 
 Koneksi yang tidak dipakai selama 30 hari berakhir otomatis. Koneksi juga bisa diputus kapan saja dari **Pengaturan → Integrasi AI** di Kedeka. Baca [kebijakan privasi](https://kedeka.com/privacy-policy) atau buka [halaman bantuan](https://kedeka.com/support).
 
-## Struktur
+Privacy policy: https://kedeka.com/privacy-policy
 
-| File | Dipakai oleh |
-|---|---|
-| `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.mcp.json` | Claude (directory, Cowork, Claude Code) |
-| `plugin.json`, `mcp.json` | Format [Agent Plugins](https://agent-plugins.org/) (ChatGPT/Codex dan aplikasi lain) |
-| `gemini-extension.json` | Gemini CLI |
-| `skills/` | Semua aplikasi di atas |
+Support: https://kedeka.com/support
 
-## Pengujian paket
-
-Uji tanpa OAuth, model, atau jaringan:
-
-```sh
-python3 -m unittest discover -s tests/Unit -p 'test_*.py'
-```
-
-## Rilis Claude Directory
-
-Claude Directory membaca branch `claude-directory`, dengan plugin path tetap di root. Branch `main` menyimpan source bersama untuk semua host dan tes pengembangan. Pemeriksaan Directory menolak file kode seperti tes Python untuk organisasi yang belum Verified, meskipun file tersebut tidak dijalankan plugin.
-
-Siapkan folder keluaran kosong di luar repository, lalu jalankan:
-
-```sh
-python3 release_claude.py /tmp/kedeka-claude-2.2.3
-```
-
-Exporter menyertakan manifest Claude, ikon, `.mcp.json`, README, LICENSE, dan Markdown skill. Tes, script rilis, marketplace, serta manifest host lain tidak masuk paket. Perintah juga menjalankan `claude plugin validate`.
-
-URL kebijakan privasi disimpan pada listing Claude Directory: `https://kedeka.com/privacy-policy`. Jangan menambahkan `privacyPolicyUrl` ke `.claude-plugin/plugin.json` karena field itu menimbulkan warning schema Claude Code. URL tetap tersedia di README dan manifest host lain.
-
-Setelah tes lulus dan perubahan source di-commit, terbitkan paket memakai folder keluaran baru:
-
-```sh
-python3 release_claude.py /tmp/kedeka-claude-2.2.3-release --publish
-```
-
-Perintah ini mendorong commit baru ke branch `claude-directory` tanpa mengganti checkout `main` atau melakukan force-push. Setiap perubahan skill harus dirilis ulang lewat perintah tersebut. Di portal submission, gunakan **Settings → Tracked branch or tag: `claude-directory`**, lalu **Check for new commits**. Lolos validasi lokal belum menjamin lolos policy review atau publikasi oleh Anthropic.
+Terms of service: https://kedeka.com/terms-of-service

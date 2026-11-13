@@ -15,7 +15,7 @@ class PackageTest(unittest.TestCase):
     def test_release_versions_match(self):
         versions = {json.loads((ROOT / name).read_text())["version"] for name in
                     ["plugin.json", ".claude-plugin/plugin.json", "gemini-extension.json"]}
-        self.assertEqual(versions, {"2.2.3"})
+        self.assertEqual(versions, {"2.2.4"})
 
     def test_claude_distribution_excludes_development_and_other_host_files(self):
         with tempfile.TemporaryDirectory() as directory:
