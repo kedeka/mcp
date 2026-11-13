@@ -60,6 +60,9 @@ def publish(output, files):
     if parent:
         git("fetch", "origin", ref)
         parent = ["-p", git("rev-parse", "FETCH_HEAD")]
+    # Retain source ancestry so GitHub can compare this release to versions
+    # previously submitted from main, while the release tree stays filtered.
+    parent += ["-p", source_commit]
     with tempfile.TemporaryDirectory(prefix="kedeka-claude-index-") as directory:
         env = {**os.environ, "GIT_INDEX_FILE": str(Path(directory) / "index")}
         git("read-tree", "--empty", env=env)
