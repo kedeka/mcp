@@ -1,7 +1,7 @@
 {
     "name": "kedeka",
     "displayName": "Kedeka",
-    "version": "2.2.2",
+    "version": "2.2.3",
     "description": "Hubungkan aplikasi AI dengan Kedeka untuk mengelola bisnis, brief proyek, dan waktu kerja agen.",
     "author": {
         "name": "Kedeka",
@@ -9,7 +9,6 @@
         "url": "https://kedeka.com"
     },
     "homepage": "https://kedeka.com",
-    "privacyPolicyUrl": "https://kedeka.com/privacy-policy",
     "license": "MIT",
     "keywords": [
         "invoice",

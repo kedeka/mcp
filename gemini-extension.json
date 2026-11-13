@@ -1,6 +1,6 @@
 {
     "name": "kedeka",
-    "version": "2.2.2",
+    "version": "2.2.3",
     "description": "Hubungkan aplikasi AI dengan Kedeka untuk mengelola bisnis, brief proyek, dan waktu kerja agen.",
     "mcpServers": {
         "kedeka": {

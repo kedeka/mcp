@@ -56,7 +56,7 @@ Data sensitif seperti NPWP, NITKU, dan nomor rekening tidak diisi di chat. Aplik
 
 Pemasangan plugin biasa memuat instruksi dan alamat connector. Plugin tidak memasang hook dan tidak menjalankan kode di komputer Anda. Saat Anda bertanya, aplikasi AI memanggil server Kedeka di `kedeka.com` dengan izin yang Anda setujui. Data yang diminta, seperti dokumen, klien, proyek, dan laporan, dikirim dari Kedeka ke penyedia aplikasi AI tersebut untuk menjawab pertanyaan Anda. Nilai yang Anda isi di halaman aman Kedeka tidak dikirim ke aplikasi AI; aplikasi AI hanya diberi tahu bahwa aksinya sudah selesai. Kedeka hanya mengirim email ke klien setelah Anda menekan Kirim di halaman aman itu, atau email terima kasih otomatis saat pembayaran melunasi invoice bila diaktifkan di pengaturan Email.
 
-Koneksi yang tidak dipakai selama 30 hari berakhir otomatis. Koneksi juga bisa diputus kapan saja dari **Pengaturan → Integrasi AI** di Kedeka. Kebijakan privasi: https://kedeka.com/privacy-policy. Bantuan: https://kedeka.com/support.
+Koneksi yang tidak dipakai selama 30 hari berakhir otomatis. Koneksi juga bisa diputus kapan saja dari **Pengaturan → Integrasi AI** di Kedeka. Baca [kebijakan privasi](https://kedeka.com/privacy-policy) atau buka [halaman bantuan](https://kedeka.com/support).
 
 ## Struktur
 
@@ -82,15 +82,17 @@ Claude Directory membaca branch `claude-directory`, dengan plugin path tetap di 
 Siapkan folder keluaran kosong di luar repository, lalu jalankan:
 
 ```sh
-python3 release_claude.py /tmp/kedeka-claude-2.2.2
+python3 release_claude.py /tmp/kedeka-claude-2.2.3
 ```
 
 Exporter menyertakan manifest Claude, ikon, `.mcp.json`, README, LICENSE, dan Markdown skill. Tes, script rilis, marketplace, serta manifest host lain tidak masuk paket. Perintah juga menjalankan `claude plugin validate`.
 
+URL kebijakan privasi disimpan pada listing Claude Directory: `https://kedeka.com/privacy-policy`. Jangan menambahkan `privacyPolicyUrl` ke `.claude-plugin/plugin.json` karena field itu menimbulkan warning schema Claude Code. URL tetap tersedia di README dan manifest host lain.
+
 Setelah tes lulus dan perubahan source di-commit, terbitkan paket memakai folder keluaran baru:
 
 ```sh
-python3 release_claude.py /tmp/kedeka-claude-2.2.2-release --publish
+python3 release_claude.py /tmp/kedeka-claude-2.2.3-release --publish
 ```
 
 Perintah ini mendorong commit baru ke branch `claude-directory` tanpa mengganti checkout `main` atau melakukan force-push. Setiap perubahan skill harus dirilis ulang lewat perintah tersebut. Di portal submission, gunakan **Settings → Tracked branch or tag: `claude-directory`**, lalu **Check for new commits**. Lolos validasi lokal belum menjamin lolos policy review atau publikasi oleh Anthropic.
