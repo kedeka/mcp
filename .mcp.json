@@ -1,0 +1,8 @@
+{
+    "mcpServers": {
+        "kedeka": {
+            "type": "http",
+            "url": "https://kedeka.com/mcp/kedeka"
+        }
+    }
+}

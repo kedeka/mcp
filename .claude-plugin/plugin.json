@@ -1,0 +1,23 @@
+{
+    "name": "kedeka",
+    "displayName": "Kedeka",
+    "version": "2.2.2",
+    "description": "Hubungkan aplikasi AI dengan Kedeka untuk mengelola bisnis, brief proyek, dan waktu kerja agen.",
+    "author": {
+        "name": "Kedeka",
+        "email": "developer@kedeka.com",
+        "url": "https://kedeka.com"
+    },
+    "homepage": "https://kedeka.com",
+    "privacyPolicyUrl": "https://kedeka.com/privacy-policy",
+    "license": "MIT",
+    "keywords": [
+        "invoice",
+        "piutang",
+        "akuntansi",
+        "indonesia",
+        "freelancer",
+        "agensi"
+    ],
+    "repository": "https://github.com/kedeka/mcp"
+}
